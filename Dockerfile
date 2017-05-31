@@ -6,7 +6,7 @@ RUN apk update  \
     && cd /usr/local/apache2/htdocs \
     && git clone https://github.com/DanielnetoDotCom/YouPHPTube.git \
     && curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl \
-    && sudo chmod a+rx /usr/local/bin/youtube-dl
+    && chmod a+rx /usr/local/bin/youtube-dl
     
 EXPOSE 443
 CMD ["httpd-foreground"]
