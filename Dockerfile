@@ -10,7 +10,7 @@ RUN apk update  \
     && mv YouPHPTube/* . \
     && rm -rf YouPHPTube \
     && curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl \
-    && chmod a+rx /usr/local/bin/youtube-dl
+    && chmod a+rx /usr/local/bin/youtube-dl \
     && chmod a+rx /usr/local/bin/httpd-foreground
 
 EXPOSE 80 443
