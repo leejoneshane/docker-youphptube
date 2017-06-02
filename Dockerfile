@@ -14,8 +14,8 @@ RUN apk update  \
        \
     && sed -ri \
            -e 's!^(max_execution_time = )(.*)$!\1 7200!g' \
-           -e 's!^(post_max_size = )(.*)$!\1 10G!g' \
-           -e 's!^(upload_max_filesize = )(.*)$!\1 10G!g' \
+           -e 's!^(post_max_size = )(.*)$!\1 1G!g' \
+           -e 's!^(upload_max_filesize = )(.*)$!\1 1G!g' \
            -e 's!^(memory_limit = )(.*)$!\1 1G!g' \
            "/etc/php7/php.ini" \
        \
