@@ -6,12 +6,12 @@ RUN apk update  \
     && apk add --no-cache git curl certbot acme-client openssl apache2 php7-apache2 php7-mysqlnd php7-curl php7-gd php7-intl php7-exif php7-mbstring mysql-client ffmpeg exiftool perl-image-exiftool python \
     && rm -rf /var/cache/apk/* \
     && mkdir /run/apache2 \
-	&& sed -ri \
-		-e 's!^(\s*CustomLog)\s+\S+!\1 /proc/self/fd/1!g' \
-		-e 's!^(\s*ErrorLog)\s+\S+!\1 /proc/self/fd/2!g' \
-        -e 's!^#(LoadModule rewrite_module .*)$!\1!g' \
-		"/etc/apache2/httpd.conf" \
-	\
+    && sed -ri \
+           -e 's!^(\s*CustomLog)\s+\S+!\1 /proc/self/fd/1!g' \
+           -e 's!^(\s*ErrorLog)\s+\S+!\1 /proc/self/fd/2!g' \
+           -e 's!^#(LoadModule rewrite_module .*)$!\1!g' \
+           "/etc/apache2/httpd.conf" \
+       \
     && git clone https://github.com/DanielnetoDotCom/YouPHPTube.git \
     && mv YouPHPTube/* . \
     && rm -rf YouPHPTube \
