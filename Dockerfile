@@ -12,13 +12,22 @@ RUN apk update  \
            -e 's!^#(LoadModule rewrite_module .*)$!\1!g' \
            "/etc/apache2/httpd.conf" \
        \
+    && sed -ri \
+           -e 's!^(max_execution_time = )(.*)$!\1 7200!g' \
+           -e 's!^(post_max_size = )(.*)$!\1 10G!g' \
+           -e 's!^(upload_max_filesize = )(.*)$!\1 10G!g' \
+           -e 's!^(memory_limit = )(.*)$!\1 1G!g' \
+           "/etc/php7/php.ini" \
+       \
     && git clone https://github.com/DanielnetoDotCom/YouPHPTube.git \
     && mv YouPHPTube/* . \
     && rm -rf YouPHPTube \
     && curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl \
     && chmod a+rx /usr/local/bin/youtube-dl \
     && chmod a+rx /usr/local/bin/httpd-foreground \
-    && chown -R apache:apache /var/www
+    && chown -R apache:apache /var/www \
+    && mkdir videos \
+    && chmod 777 videos
 
 EXPOSE 80 443
 CMD ["httpd-foreground"]
