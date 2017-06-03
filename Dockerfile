@@ -29,5 +29,7 @@ RUN apk update  \
     && mkdir videos \
     && chmod 777 videos
 
+ADD tw.php /var/www/localhost/htdocs/locale
+
 EXPOSE 80 443
 CMD ["httpd-foreground"]
