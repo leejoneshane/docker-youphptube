@@ -25,6 +25,7 @@ RUN apk update  \
            -e 's!^(memory_limit = )(.*)$!\1 1G!g' \
            "/etc/php7/php.ini" \
        \
+    && rm -f index.html \
     && git clone https://github.com/DanielnetoDotCom/YouPHPTube.git \
     && mv YouPHPTube/* . \
     && rm -rf YouPHPTube \
