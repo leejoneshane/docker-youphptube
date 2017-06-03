@@ -1,5 +1,10 @@
 FROM alpine
 
+ENV	DB_HOST mysql
+ENV	DB_USER root
+ENV	DB_PASSWORD
+ENV	DB_NAME youPHPTube
+
 ADD httpd-foreground /usr/local/bin/
 ADD gencerts.sh /usr/local/bin/
 WORKDIR /var/www/localhost/htdocs
