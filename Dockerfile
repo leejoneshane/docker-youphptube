@@ -27,9 +27,9 @@ RUN apk update  \
     && chmod a+rx /usr/local/bin/youtube-dl \
     && chmod a+rx /usr/local/bin/httpd-foreground \
     && chmod a+rx /usr/local/bin/gencerts.sh \
-    && chown -R apache:apache /var/www \
     && mkdir videos \
-    && chmod 777 videos
+    && chmod 777 videos \
+    && chown -R apache:apache /var/www
 
 ADD tw.php /var/www/localhost/htdocs/locale
 
