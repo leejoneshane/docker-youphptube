@@ -1,6 +1,7 @@
 FROM alpine
 
-COPY httpd-foreground /usr/local/bin/
+ADD httpd-foreground /usr/local/bin/
+ADD gencerts.sh /usr/local/bin/
 WORKDIR /var/www/localhost/htdocs
 RUN apk update  \
     && apk add --no-cache git curl certbot acme-client openssl apache2 apache2-ssl php7-apache2 php7-mysqlnd php7-curl php7-gd php7-intl php7-exif php7-mbstring mysql-client ffmpeg exiftool perl-image-exiftool python \
@@ -25,6 +26,7 @@ RUN apk update  \
     && curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl \
     && chmod a+rx /usr/local/bin/youtube-dl \
     && chmod a+rx /usr/local/bin/httpd-foreground \
+    && chmod a+rx /usr/local/bin/gencerts.sh \
     && chown -R apache:apache /var/www \
     && mkdir videos \
     && chmod 777 videos
