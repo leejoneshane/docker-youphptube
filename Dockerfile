@@ -33,5 +33,6 @@ RUN apk update  \
 
 ADD tw.php /var/www/localhost/htdocs/locale
 
+VOLUME /var/www/localhost/htdocs/videos
 EXPOSE 80 443
 CMD ["httpd-foreground"]
