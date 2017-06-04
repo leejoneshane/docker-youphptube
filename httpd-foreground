@@ -19,5 +19,7 @@ set -e
 #fi
     
 # Apache gets grumpy about PID files pre-existing
+/usr/bin/mysqld_safe --datadir='/var/lib/mysql'
+
 rm -f /run/apache2/httpd.pid
 exec httpd -DFOREGROUND
