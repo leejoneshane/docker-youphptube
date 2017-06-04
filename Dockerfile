@@ -16,6 +16,7 @@ RUN apk update  \
            -e 's!^(\s*CustomLog)\s+\S+!\1 /proc/self/fd/1!g' \
            -e 's!^(\s*ErrorLog)\s+\S+!\1 /proc/self/fd/2!g' \
            -e 's!^#(LoadModule rewrite_module .*)$!\1!g' \
+           -e 's!^(\s*AllowOverride) None.*$!\1 All!g' \
            "/etc/apache2/httpd.conf" \
        \
     && sed -ri \
@@ -27,7 +28,7 @@ RUN apk update  \
        \
     && rm -f index.html \
     && git clone https://github.com/DanielnetoDotCom/YouPHPTube.git \
-    && mv YouPHPTube/* . \
+    && mv YouPHPTube/.[!.]* . \
     && rm -rf YouPHPTube \
     && chmod a+rx /usr/local/bin/httpd-foreground \
     && chmod a+rx /usr/local/bin/gencerts.sh \
