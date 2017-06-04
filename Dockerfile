@@ -3,7 +3,7 @@ FROM alpine
 ENV	DB_HOST mysql
 ENV	DB_USER root
 ENV	DB_PASSWORD password
-ENV	DB_NAME youPHPTube
+ENV	DOMAIN your.domain
 
 ADD httpd-foreground /usr/local/bin/
 ADD gencerts.sh /usr/local/bin/
