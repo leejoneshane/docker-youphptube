@@ -8,7 +8,6 @@ if [! -e /run/mysqld ]; then
     /usr/bin/mysql_install_db --user=mysql 
 fi
 
-/usr/bin/mysqld_safe --datadir='/var/lib/mysql' &
-
 rm -f /run/apache2/httpd.pid
-exec httpd -DFOREGROUND
+
+/usr/bin/mysqld_safe --datadir='/var/lib/mysql' && exec httpd -DFOREGROUND
