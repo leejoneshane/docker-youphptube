@@ -9,7 +9,7 @@ ADD httpd-foreground /usr/local/bin/
 ADD gencerts.sh /usr/local/bin/
 WORKDIR /var/www/localhost/htdocs
 RUN apk update  \
-    && apk add --no-cache git curl certbot acme-client openssl apache2 apache2-ssl php7-apache2 php7-mysqlnd php7-mysqli php7-json php7-curl php7-gd php7-intl php7-exif php7-mbstring mysql-client ffmpeg exiftool perl-image-exiftool python \
+    && apk add --no-cache git curl certbot acme-client openssl apache2 apache2-ssl php7-apache2 php7-mysqlnd php7-mysqli php7-json php7-curl php7-gd php7-intl php7-exif php7-mbstring mysql-client ffmpeg exiftool perl-image-exiftool python youtube-dl \
     && rm -rf /var/cache/apk/* \
     && mkdir /run/apache2 \
     && sed -ri \
@@ -29,14 +29,11 @@ RUN apk update  \
     && git clone https://github.com/DanielnetoDotCom/YouPHPTube.git \
     && mv YouPHPTube/* . \
     && rm -rf YouPHPTube \
-    && curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl \
-    && chmod a+rx /usr/local/bin/youtube-dl \
     && chmod a+rx /usr/local/bin/httpd-foreground \
     && chmod a+rx /usr/local/bin/gencerts.sh \
     && mkdir videos \
     && chmod 777 videos \
-    && chown -R apache:apache /var/www \
-    && echo "ipv6" >> /etc/modules
+    && chown -R apache:apache /var/www
 
 ADD tw.php /var/www/localhost/htdocs/locale
 
