@@ -1,11 +1,11 @@
 <?php
-$global['webSiteRootURL'] = 'http://localhost:8000/';
+$global['webSiteRootURL'] = 'http://DOMAIN/';
 $global['systemRootPath'] = '/var/www/localhost/htdocs/';
 
 
-$mysqlHost = '172.17.0.2';
-$mysqlUser = 'root';
-$mysqlPass = '12345678';
+$mysqlHost = 'DB_HOST';
+$mysqlUser = 'DB_USER';
+$mysqlPass = 'DB_PASSWORD';
 $mysqlDatabase = 'youPHPTube';
 
 /**
