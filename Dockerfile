@@ -5,7 +5,7 @@ ENV	DB_USER root
 ENV	DB_PASSWORD password
 ENV	DOMAIN your.domain
 
-ADD httpd-foreground /usr/local/bin/
+ADD docker-entrypoint.sh /usr/local/bin/
 ADD gencerts.sh /usr/local/bin/
 WORKDIR /var/www/localhost/htdocs
 RUN apk update  \
@@ -31,7 +31,7 @@ RUN apk update  \
     && mv YouPHPTube/* . \
     && mv YouPHPTube/.[!.]* . \
     && rm -rf YouPHPTube \
-    && chmod a+rx /usr/local/bin/httpd-foreground \
+    && chmod a+rx /usr/local/bin/docker-entrypoint.sh \
     && chmod a+rx /usr/local/bin/gencerts.sh \
     && mkdir videos \
     && chmod 777 videos \
@@ -41,4 +41,4 @@ ADD tw.php /var/www/localhost/htdocs/locale
 
 VOLUME /var/www/localhost/htdocs/videos
 EXPOSE 80 443
-CMD ["httpd-foreground"]
+CMD ["docker-entrypoint.sh"]
