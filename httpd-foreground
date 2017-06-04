@@ -1,22 +1,22 @@
 #!/bin/sh
 set -e
 
-if [ ! -f videos/configure.php ]; then
-fi
+#if [ ! -f videos/configure.php ]; then
+#fi
 
-if [ ! -e .htaccess ]; then
-	cat > .htaccess <<-'EOF'
-		<IfModule mod_rewrite.c>
-		RewriteEngine On
-		RewriteBase /
-		RewriteRule ^index\.php$ - [L]
-		RewriteCond %{REQUEST_FILENAME} !-f
-		RewriteCond %{REQUEST_FILENAME} !-d
-		RewriteRule . /index.php [L]
-		</IfModule>
-	EOF
-  chown apache:apache .htaccess
-fi
+#if [ ! -e .htaccess ]; then
+#	cat > .htaccess <<-'EOF'
+#		<IfModule mod_rewrite.c>
+#		RewriteEngine On
+#		RewriteBase /
+#		RewriteRule ^index\.php$ - [L]
+#		RewriteCond %{REQUEST_FILENAME} !-f
+#		RewriteCond %{REQUEST_FILENAME} !-d
+#		RewriteRule . /index.php [L]
+#		</IfModule>
+#	EOF
+#  chown apache:apache .htaccess
+#fi
     
 # Apache gets grumpy about PID files pre-existing
 rm -f /run/apache2/httpd.pid
