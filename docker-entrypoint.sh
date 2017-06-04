@@ -4,7 +4,7 @@ set -e
 #if [ ! -f videos/configuration.php ]; then
 #fi
     
-if [! -e /run/mysqld ]; then
+if [! -d /run/mysqld ]; then
     /usr/bin/mysql_install_db --user=mysql 
 fi
 
