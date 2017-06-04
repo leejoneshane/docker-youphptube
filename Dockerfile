@@ -9,7 +9,7 @@ ADD httpd-foreground /usr/local/bin/
 ADD gencerts.sh /usr/local/bin/
 WORKDIR /var/www/localhost/htdocs
 RUN apk update  \
-    && apk add --no-cache git curl certbot acme-client openssl apache2 apache2-ssl php7-apache2 php7-mysqlnd php7-curl php7-gd php7-intl php7-exif php7-mbstring mysql-client ffmpeg exiftool perl-image-exiftool python \
+    && apk add --no-cache git curl certbot acme-client openssl apache2 apache2-ssl php7-apache2 php7-mysqlnd php-mysqli php7-curl php7-gd php7-intl php7-exif php7-mbstring mysql-client ffmpeg exiftool perl-image-exiftool python \
     && rm -rf /var/cache/apk/* \
     && mkdir /run/apache2 \
     && sed -ri \
