@@ -18,7 +18,7 @@ set -e
 #  chown apache:apache .htaccess
 #fi
     
-# Apache gets grumpy about PID files pre-existing
+/usr/bin/mysql_install_db --user=mysql 
 /usr/bin/mysqld_safe --datadir='/var/lib/mysql'
 
 rm -f /run/apache2/httpd.pid
