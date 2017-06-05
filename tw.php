@@ -148,4 +148,5 @@ $t['Your video has NOT been saved!'] = "影片尚未儲存！";
 $t['Your video has been deleted!'] = "影片已經删除！";
 $t['Your video has been saved!'] = "影片已經儲存！";
 $t['is Admin'] = "管理員";
+$t['is Active'] = "啟用";
 $t['remaining'] = "剩下";
