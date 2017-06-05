@@ -5,6 +5,7 @@ ENV	DB_USER root
 ENV	DB_PASSWORD password
 ENV	DOMAIN your.domain
 
+ADD configuration.php /home/
 ADD docker-entrypoint.sh /usr/local/bin/
 ADD gencerts.sh /usr/local/bin/
 WORKDIR /var/www/localhost/htdocs
