@@ -12,8 +12,14 @@ if [ ! -f videos/configuration.php ]; then
         "/var/www/localhost/htdocs/videos/configuration.php"
     RESULT=`mysqlshow --host=${DB_HOST} --user=${DB_USER} --password=${DB_PASSWORD} | grep YouPHPTube`
     if [ -z "$RESULT" ]; then
-      echo "create database if not exists YouPHPTube;" | mysql --host="${DB_HOST}" --user="${DB_USER}" --password="${DB_PASSWORD}"
+      echo "CREATE DATABASE IF NOT EXISTS YouPHPTube;" | mysql --host="${DB_HOST}" --user="${DB_USER}" --password="${DB_PASSWORD}"
       mysql --host="${DB_HOST}" --user="${DB_USER}" --password="${DB_PASSWORD}" YouPHPTube < /var/www/localhost/htdocs/install/database.sql
+      echo "DELETE FROM users WHERE id = 1;" | mysql --host="${DB_HOST}" --user="${DB_USER}" --password="${DB_PASSWORD}"
+      echo "INSERT INTO users (id, user, password, created, modified, isAdmin) VALUES (1, 'admin', md5('${ADMIN_PASSWORD}'), now(), now(), true);" | mysql --host="${DB_HOST}" --user="${DB_USER}" --password="${DB_PASSWORD}"
+      echo "DELETE FROM categories WHERE id = 1;" | mysql --host="${DB_HOST}" --user="${DB_USER}" --password="${DB_PASSWORD}"
+      echo "INSERT INTO categories (id, name, clean_name, created, modified) VALUES (1, 'Default', 'default', now(), now());" | mysql --host="${DB_HOST}" --user="${DB_USER}" --password="${DB_PASSWORD}"
+      echo "DELETE FROM configurations WHERE id = 1;" | mysql --host="${DB_HOST}" --user="${DB_USER}" --password="${DB_PASSWORD}"
+      echo "INSERT INTO configurations (id, video_resolution, users_id, version, webSiteTitle, language, contactEmail,  created, modified) VALUES (1, '858:480', 1,'2.8', '${SITE_TITLE}', 'tw', '${ADMIN_EMAIL', now(), now());" | mysql --host="${DB_HOST}" --user="${DB_USER}" --password="${DB_PASSWORD}"
     fi
   fi
 fi
