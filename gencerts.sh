@@ -8,9 +8,12 @@ fi
 # Initial certificate request, but skip if cached
 if [ ! -f /etc/letsencrypt/live/${DOMAIN}/fullchain.pem ]; then
   certbot certonly --webroot \
-   --webroot-path=/usr/share/nginx/html \
+   --webroot-path=/var/www \
    --domain ${DOMAIN} \
-   --email "${EMAIL}" --agree-tos
+   --email "${ADMIN_EMAIL}" --agree-tos
 fi
 
-/usr/bin/sed -i "s/\<domain\>/${DOMAIN}/g" /etc/apache2/conf.d/ssl.conf
+/usr/bin/sed -e "s!^(ServerName )(.*)$!\1 ${DOMAIN}!g" \
+             -e "s!^(SSLCertificateFile )(.*)$!\1 /etc/letsencrypt/live/${DOMAIN}/fullchain.pem!g" \
+             -e "s!^(SSLCertificateKeyFile )(.*)$!\1 /etc/letsencrypt/live/${DOMAIN}/privkey.pem!g" \
+             /etc/apache2/conf.d/ssl.conf
