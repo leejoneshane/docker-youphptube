@@ -11,7 +11,7 @@ if [ ! -f videos/configuration.php ]; then
         -e "s!DB_PASSWORD!${DB_PASSWORD}!g" \
         "/var/www/localhost/htdocs/videos/configuration.php"
     RESULT=`mysqlshow --host=${DB_HOST} --user=${DB_USER} --password=${DB_PASSWORD} | grep youPHPTube`
-    if [ -z "$RESULT" ]; then
+    if [[ "x$RESULT" == "x" ]; then
       echo "CREATE DATABASE IF NOT EXISTS youPHPTube;" | mysql --host="${DB_HOST}" --user="${DB_USER}" --password="${DB_PASSWORD}"
       mysql --host="${DB_HOST}" --user="${DB_USER}" --password="${DB_PASSWORD}" youPHPTube < /var/www/localhost/htdocs/install/database.sql
       echo "DELETE FROM users WHERE id = 1;" | mysql --host="${DB_HOST}" --user="${DB_USER}" --password="${DB_PASSWORD}" youPHPTube
