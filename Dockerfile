@@ -1,6 +1,6 @@
 FROM alpine
 
-ENV	DB_HOST localhost
+ENV	DB_HOST mysql
 ENV	DB_USER root
 ENV	DB_PASSWORD password
 ENV	DOMAIN your.domain
