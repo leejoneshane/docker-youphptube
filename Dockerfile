@@ -1,12 +1,12 @@
 FROM alpine
 
-ENV	DOMAIN your.domain
-ENV	SITE_TITLE your_site_title
-ENV	ADMIN_PASSWORD password
-ENV	ADMIN_EMAIL webmaster@your.domain
-ENV	DB_HOST localhost
-ENV	DB_USER root
-ENV	DB_PASSWORD password
+ENV DOMAIN your.domain
+ENV SITE_TITLE your_site_title
+ENV ADMIN_PASSWORD password
+ENV ADMIN_EMAIL webmaster@your.domain
+ENV DB_HOST localhost
+ENV DB_USER root
+ENV DB_PASSWORD password
 
 ADD configuration.php /home/
 ADD docker-entrypoint.sh /usr/local/bin/
