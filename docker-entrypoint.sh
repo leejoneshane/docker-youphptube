@@ -13,7 +13,7 @@ if [ ! -f videos/configuration.php ]; then
     RESULT=`mysqlshow --host=172.17.0.2 --user=root --password=12345678 | grep YouPHPTube`
     if [ -z "${RESULT}" ]; then
       echo "create database if not exists YouPHPTube;" | mysql --host="${DB_HOST}" --user="${DB_USER}" --password="${DB_PASSWORD}"
-      mysql --host="${DB_HOST}" --user="${DB_USER} --password="${DB_PASSWORD}" YouPHPTube < /var/www/localhost/htdocs/install/database.sql
+      mysql --host="${DB_HOST}" --user="${DB_USER}" --password="${DB_PASSWORD}" YouPHPTube < /var/www/localhost/htdocs/install/database.sql
     fi
   fi
 fi
