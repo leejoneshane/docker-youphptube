@@ -13,7 +13,8 @@ if [ ! -f /etc/letsencrypt/live/${DOMAIN}/fullchain.pem ]; then
    --email "${ADMIN_EMAIL}" --agree-tos
 fi
 
-sed -e "s!^(ServerName )(.*)$!\1 ${DOMAIN}!g" \
+sed -ri \
+    -e "s!^(ServerName )(.*)$!\1 ${DOMAIN}!g" \
     -e "s!^(SSLCertificateFile )(.*)$!\1 /etc/letsencrypt/live/${DOMAIN}/fullchain.pem!g" \
     -e "s!^(SSLCertificateKeyFile )(.*)$!\1 /etc/letsencrypt/live/${DOMAIN}/privkey.pem!g" \
     /etc/apache2/conf.d/ssl.conf
