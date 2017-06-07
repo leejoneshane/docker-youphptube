@@ -14,7 +14,7 @@ if [ ! -f /etc/letsencrypt/live/${DOMAIN}/fullchain.pem ]; then
 fi
 
 sed -ri \
-    -e "s!^(ServerName )(.*)$!\1 ${DOMAIN}!g" \
-    -e "s!^(SSLCertificateFile )(.*)$!\1 /etc/letsencrypt/live/${DOMAIN}/fullchain.pem!g" \
-    -e "s!^(SSLCertificateKeyFile )(.*)$!\1 /etc/letsencrypt/live/${DOMAIN}/privkey.pem!g" \
-    /etc/apache2/conf.d/ssl.conf
+    -e "s!^(ServerName )(.*)!\1 ${DOMAIN}!g" \
+    -e "s!^(SSLCertificateFile )(.*)!\1 /etc/letsencrypt/live/${DOMAIN}/fullchain.pem!g" \
+    -e "s!^(SSLCertificateKeyFile )(.*)!\1 /etc/letsencrypt/live/${DOMAIN}/privkey.pem!g" \
+    "/etc/apache2/conf.d/ssl.conf"
