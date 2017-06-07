@@ -15,7 +15,6 @@ fi
 
 sed -ri \
     -e "s!^(ServerName )(.*)!\1 ${DOMAIN}!g" \
-    -e "s!^(SSLCertificateFile )(.*)!\1 /etc/letsencrypt/live/${DOMAIN}/cert.pem!g" \
+    -e "s!^(SSLCertificateFile )(.*)!\1 /etc/letsencrypt/live/${DOMAIN}/fullchain.pem!g" \
     -e "s!^(SSLCertificateKeyFile )(.*)!\1 /etc/letsencrypt/live/${DOMAIN}/privkey.pem!g" \
-    -e "s!^#(SSLCertificateChainFile )(.*)!\1 /etc/letsencrypt/live/${DOMAIN}/chain.pem!g" \
     "/etc/apache2/conf.d/ssl.conf"
