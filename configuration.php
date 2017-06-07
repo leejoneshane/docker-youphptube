@@ -2,7 +2,6 @@
 $global['webSiteRootURL'] = 'http://DOMAIN/';
 $global['systemRootPath'] = '/var/www/localhost/htdocs/';
 
-
 $mysqlHost = 'DB_HOST';
 $mysqlUser = 'DB_USER';
 $mysqlPass = 'DB_PASSWORD';
