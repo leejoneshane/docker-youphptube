@@ -257,7 +257,7 @@ $t['When autoplay is enabled, a suggested video will automatically play next.'] 
 $t['Word Translations'] = "翻譯";
 $t['Yes'] = "是";
 $t['Yes, delete it!'] = "是的，删除它！";
-$t['You are running YouPHPTube version %s!'] = "目前的 YouPHPTube 版本為 ％s！";
+$t['You are running YouPHPTube version %s!'] = "目前的 YouPHPTube 版本為 %s！";
 $t['You asked for a recover link, click on the provided link'] = "這是您要求的回覆連結，請點按連結";
 $t['You can not manager ads'] = "您不能管理廣告";
 $t['You can not manager categories'] = "您不能管理分類";
