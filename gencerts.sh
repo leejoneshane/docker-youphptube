@@ -11,6 +11,8 @@ if [ ! -f /etc/letsencrypt/live/${DOMAIN}/fullchain.pem ]; then
    --webroot-path=/var/www/localhost/htdocs/ \
    --domain ${DOMAIN} \
    --email "${ADMIN_EMAIL}" --agree-tos
+else
+  certbot renew
 fi
 
 sed -ri \
