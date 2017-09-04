@@ -30,6 +30,7 @@ docker run --name utube -e DOMAIN=the_server_url -e ADMIN_EMAIL=your_email -p 44
 You can setup your own SSL certificates **OR** genarate [Let's Encrypt](https://letsencrypt.org/) free SSL by shell script like below:
 
 docker exec utube bash↵
+
 utube#>gencerts.sh↵
 
 Then, You should open browser conenect to https://the_server_url and setup your YouPHPTube Streamer Server. By the way, The YouPHPTube Encoder Server was installed in https://the_server_url/encoder, don't forget to setup the configurations.
