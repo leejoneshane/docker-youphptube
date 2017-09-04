@@ -39,6 +39,7 @@ RUN apk update  \
     && chmod a+rx /usr/local/bin/gencerts.sh \
     && mkdir videos \
     && chmod 777 videos \
+    && git clone https://github.com/DanielnetoDotCom/YouPHPTube-Encoder.git \
     && chown -R apache:apache /var/www
 
 ADD tw.php /var/www/localhost/htdocs/locale
