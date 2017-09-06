@@ -24,10 +24,10 @@ RUN apk update  \
            "/etc/apache2/httpd.conf" \
        \
     && sed -ri \
-           -e 's!^(max_execution_time = )(.*)$!\1 7200!g' \
+           -e 's!^(max_execution_time = )(.*)$!\1 72000!g' \
            -e 's!^(post_max_size = )(.*)$!\1 1G!g' \
-           -e 's!^(upload_max_filesize = )(.*)$!\1 1G!g' \
-           -e 's!^(memory_limit = )(.*)$!\1 1G!g' \
+           -e 's!^(upload_max_filesize = )(.*)$!\1 10G!g' \
+           -e 's!^(memory_limit = )(.*)$!\1 10G!g' \
            "/etc/php7/php.ini" \
        \
     && rm -f index.html \
@@ -45,6 +45,6 @@ RUN apk update  \
 
 ADD tw.php /var/www/localhost/htdocs/locale
 
-VOLUME /var/www/localhost/htdocs/videos
+VOLUME ["/var/www/localhost/htdocs/videos", "/var/www/localhost/htdocs/encoder/videos"]
 EXPOSE 80 443
 CMD ["docker-entrypoint.sh"]
