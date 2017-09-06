@@ -40,7 +40,7 @@ RUN apk update  \
     && mkdir videos \
     && chmod 777 videos \
     && git clone https://github.com/DanielnetoDotCom/YouPHPTube-Encoder.git \
-    && mv YouPHPTube-Encoder encoder
+    && mv YouPHPTube-Encoder encoder \
     && chown -R apache:apache /var/www
 
 ADD tw.php /var/www/localhost/htdocs/locale
