@@ -25,7 +25,7 @@ docker run --name mysql -e MYSQL_ROOT_PASSWORD=your_db_passwd -d mysql/mysql
 
 After that, You can run the YouPHPTube container and link to MySQL. Docker command like below:
 
-docker run --name utube -e DOMAIN=the_server_url -e ADMIN_EMAIL=your_email -e ADMIN_PASSWORD=youphptube_passwd -p 443:443 -d leejoneshane/youphptube
+docker run --name utube -e DOMAIN=the_server_url -e ADMIN_EMAIL=your_email -p 443:443 -d leejoneshane/youphptube
 
 You can setup your own SSL certificates **OR** genarate [Let's Encrypt](https://letsencrypt.org/) free SSL by shell script like below:
 
