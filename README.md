@@ -27,6 +27,8 @@ After that, You can run the YouPHPTube container and link to MySQL. Docker comma
 
 docker run --name utube -e DOMAIN=the_server_url -e ADMIN_EMAIL=your_email -p 443:443 -d leejoneshane/youphptube
 
+If you want to specify a language, use the parameters -e LANG=your_country before -d leejoneshane/youphptube.
+
 You can setup your own SSL certificates **OR** genarate [Let's Encrypt](https://letsencrypt.org/) free SSL by shell script like below:
 
 docker exec utube bash↵
