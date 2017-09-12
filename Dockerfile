@@ -7,6 +7,7 @@ ENV ADMIN_EMAIL webmaster@your.domain
 ENV DB_HOST localhost
 ENV DB_USER root
 ENV DB_PASSWORD password
+ENV LANG en
 
 ADD configuration.php /home/
 ADD docker-entrypoint.sh /usr/local/bin/
