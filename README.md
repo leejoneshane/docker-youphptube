@@ -35,7 +35,7 @@ docker exec utube bash↵
 
 utube#>gencerts.sh↵
 
-Then, you should open browser conenect to ＿https://the_server_url＿ and setup your YouPHPTube Streamer Server. By the way, The YouPHPTube Encoder Server was installed in ＿https://the_server_url/encoder＿, don't forget to setup the configurations too.
+Then, you should open browser conenect to <em>https://the_server_url</em> and setup your YouPHPTube Streamer Server. By the way, The YouPHPTube Encoder Server was installed in <em>https://the_server_url/encoder</em>, don't forget to setup the configurations too.
 
 Please use the following instructions to get mysql server's ip:
 
