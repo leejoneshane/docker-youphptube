@@ -25,10 +25,10 @@ if [[ "${DOMAIN}" != "your.domain" && "${DB_HOST}" != "localhost" ]]; then
   if mysqlshow --host=${DB_HOST} --user=${DB_USER} --password=${DB_PASSWORD} youPHPTube-Encoder; then
     echo "database exist!"
   else
-    echo "CREATE DATABASE youPHPTube-Encoder CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;" | mysql --host="${DB_HOST}" --user="${DB_USER}" --password="${DB_PASSWORD}"
+    mysql --host="${DB_HOST}" --user="${DB_USER}" --password="${DB_PASSWORD}" -e "CREATE DATABASE \`youPHPTube-Encoder\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
     mysql --host="${DB_HOST}" --user="${DB_USER}" --password="${DB_PASSWORD}" youPHPTube-Encoder < /var/www/localhost/htdocs/encoder/install/database.sql
-    echo "USE youPHPTube-Encoder; INSERT INTO streamers (id, siteURL, user, pass, priority, isAdmin, created, modified) VALUES (1, 'https://${DOMAIN}', 'admin', '${ADMIN_PASSWORD}', 1, 1, now(), now());" | mysql --host="${DB_HOST}" --user="${DB_USER}" --password="${DB_PASSWORD}"
-    echo "USE youPHPTube-Encoder; INSERT INTO configurations (id, allowedStreamerURL, defaultPriority, created, modified, version) VALUES (1, 'https://${DOMAIN}', 1, now(), now(), '1.0');" | mysql --host="${DB_HOST}" --user="${DB_USER}" --password="${DB_PASSWORD}"
+    mysql --host="${DB_HOST}" --user="${DB_USER}" --password="${DB_PASSWORD}" -e "USE \`youPHPTube-Encoder\`; INSERT INTO streamers (id, siteURL, user, pass, priority, isAdmin, created, modified) VALUES (1, 'https://${DOMAIN}', 'admin', '${ADMIN_PASSWORD}', 1, 1, now(), now());"
+    mysql --host="${DB_HOST}" --user="${DB_USER}" --password="${DB_PASSWORD}" -e "USE \`youPHPTube-Encoder\`; INSERT INTO configurations (id, allowedStreamerURL, defaultPriority, created, modified, version) VALUES (1, 'https://${DOMAIN}', 1, now(), now(), '1.0');"
   fi
 fi
 
