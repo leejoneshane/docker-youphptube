@@ -5,6 +5,7 @@ if [[ "${DOMAIN}" != "your.domain" && "${DB_HOST}" != "localhost" ]]; then
   if [ ! -f videos/configuration.php ]; then
     cp /home/configuration.php /var/www/localhost/htdocs/videos/configuration.php
     sed -ri \
+        -e "s!PROTOCOL!${DOMAIN_PROTOCOL}!g" \
         -e "s!DOMAIN!${DOMAIN}!g" \
         -e "s!DB_HOST!${DB_HOST}!g" \
         -e "s!DB_USER!${DB_USER}!g" \

@@ -1,6 +1,7 @@
 FROM alpine
 
 ENV DOMAIN your.domain
+ENV DOMAIN_PROTOCOL http
 ENV SITE_TITLE your_site_title
 ENV ADMIN_PASSWORD password
 ENV ADMIN_EMAIL webmaster@your.domain
