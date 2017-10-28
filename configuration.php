@@ -1,5 +1,5 @@
 <?php
-$global['webSiteRootURL'] = 'http://DOMAIN/';
+$global['webSiteRootURL'] = 'PROTOCOL://DOMAIN/';
 $global['systemRootPath'] = '/var/www/localhost/htdocs/';
 
 $mysqlHost = 'DB_HOST';
