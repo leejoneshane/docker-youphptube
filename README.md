@@ -19,7 +19,13 @@ Go get it <a href="https://github.com/DanielnetoDotCom/YouPHPTube-Encoder" targe
 </div>
 
 # How to use
-You need MySQL server to store database for YouPHPTube. Run command like below:
+The simple way, you run the command below:
+```
+docker-compose up &
+```
+This way will create all service containers, include: mysql, phpmyadmin and youphptube.
+
+Or you can run then on your own, you need MySQL server to store database for YouPHPTube. Run command like below:
 ```
 docker run --name mysql -e MYSQL_ROOT_PASSWORD=your_db_passwd -d mysql/mysql
 ```
