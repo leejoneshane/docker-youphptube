@@ -31,15 +31,28 @@ docker run --name mysql -e MYSQL_ROOT_PASSWORD=your_db_passwd -d mysql/mysql
 ```
 After that, you can run the YouPHPTube container and link to MySQL. Docker command like below:
 ```
-docker run --name utube -e DOMAIN=the_server_url -e ADMIN_EMAIL=your_email -p 443:443 -d leejoneshane/youphptube
+docker run --name utube
+-e SITE_TITLE="The name of your site"
+-e DOMAIN=FQDN.your_site.com
+-e DOMAIN_PROTOCOL=http
+-e ADMIN_EMAIL=your_account@gmail.com
+-e DB_HOST=mysql_server
+-e DB_USER=root
+-e DB_PASSWORD=your_db_passwd
+-e LANG=en
+-p 80:80
+-p 443:443
+-d leejoneshane/youphptube
 ```
-If you want to specify a language, use the parameters -e LANG=your_country before -d leejoneshane/youphptube.
+You may want to change the default language, use the parameters -e LANG=your_country.
 
 When the contianer is running, you can setup your own SSL certificates **OR** genarate [Let's Encrypt](https://letsencrypt.org/) free SSL by shell script like below:
 ```
 docker exec utube bash↵
 utube#>gencerts.sh↵
 ```
+After that don't forget to change the environment variable __DOMAIN_PROTOCOL__ to __https__, and restart your container.
+
 Then, you should open browser conenect to <em>https://the_server_url</em> and setup your YouPHPTube Streamer Server. By the way, The YouPHPTube Encoder Server was installed in <em>https://the_server_url/encoder</em>, don't forget to setup the configurations too.
 
 Please use the following instructions to get mysql server's ip:
