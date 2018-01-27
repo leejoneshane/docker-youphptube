@@ -1,0 +1,26 @@
+version: '2'
+services:
+  mysql:
+    image: mysql/mysql-server
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: your_db_password
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: sqladmin
+    ports:
+      - "8080:80"
+    links:
+      - mysql:db
+
+  youphptube:
+    image: leejoneshane/youphptube
+    container_name: utube
+    environment:
+      DOMAIN: fqdn_of_the_server
+      ADMIN_EMAIL: your_email
+    ports:
+      - "443:443"
+    links:
+      - mysql:db
