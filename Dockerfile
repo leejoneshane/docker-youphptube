@@ -15,7 +15,7 @@ ADD docker-entrypoint.sh /usr/local/bin/
 ADD gencerts.sh /usr/local/bin/
 WORKDIR /var/www/localhost/htdocs
 RUN apk update  \
-    && apk add --no-cache git curl certbot acme-client openssl mysql-client apache2 apache2-ssl php7 php7-apache2 php7-mysqlnd php7-mysqli php7-json php7-session php7-curl php7-gd php7-intl php7-exif php7-mbstring ffmpeg exiftool perl-image-exiftool python youtube-dl \
+    && apk add --no-cache git curl certbot acme-client openssl mysql-client apache2 apache2-ssl php7 php7-apache2 php7-mysqlnd php7-mysqli php7-json php7-session php7-curl php7-gd php7-intl php7-exif php7-mbstring php7-gettext ffmpeg exiftool perl-image-exiftool python youtube-dl \
     && rm -rf /var/cache/apk/* \
     && mkdir /run/apache2 \
     && sed -ri \
@@ -40,7 +40,7 @@ RUN apk update  \
     && chmod a+rx /usr/local/bin/docker-entrypoint.sh \
     && chmod a+rx /usr/local/bin/gencerts.sh \
     && mkdir videos \
-    && chmod 777 videos \
+    && chmod 755 videos \
     && git clone https://github.com/DanielnetoDotCom/YouPHPTube-Encoder.git \
     && mv YouPHPTube-Encoder encoder \
     && chown -R apache:apache /var/www
