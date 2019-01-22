@@ -10,10 +10,11 @@ ENV DB_USER root
 ENV DB_PASSWORD password
 ENV LANG en
 
-ADD configuration.php /home/
+ADD configuration.php /root/
 ADD docker-entrypoint.sh /usr/local/bin/
 ADD gencerts.sh /usr/local/bin/
 WORKDIR /var/www/localhost/htdocs
+
 RUN apk update  \
     && apk add --no-cache git curl certbot acme-client openssl mysql-client apache2 apache2-ssl php7 php7-apache2 php7-mysqlnd php7-mysqli php7-json php7-session php7-curl php7-gd php7-intl php7-exif php7-mbstring php7-gettext ffmpeg exiftool perl-image-exiftool python youtube-dl \
     && rm -rf /var/cache/apk/* \
