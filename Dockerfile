@@ -12,8 +12,7 @@ ENV SALT your.salt
 ENV LANG en
 
 ADD configuration.php /root/
-ADD encoder_configuration.php /root/
-ADD docker-entrypoint.sh /usr/local/bin/
+ADD entrypoint.sh /usr/local/bin/
 ADD gencerts.sh /usr/local/bin/
 WORKDIR /var/www/localhost/htdocs
 
@@ -40,7 +39,7 @@ RUN apk update  \
     && mv YouPHPTube/* . \
     && mv YouPHPTube/.[!.]* . \
     && rm -rf YouPHPTube \
-    && chmod a+rx /usr/local/bin/docker-entrypoint.sh \
+    && chmod a+rx /usr/local/bin/entrypoint.sh \
     && chmod a+rx /usr/local/bin/gencerts.sh \
     && mkdir videos \
     && chmod 755 videos \
@@ -50,4 +49,4 @@ ADD tw.php /var/www/localhost/htdocs/locale
 
 VOLUME ["/var/www/localhost/htdocs/videos"]
 EXPOSE 80 443
-CMD ["docker-entrypoint.sh"]
+CMD ["entrypoint.sh"]
