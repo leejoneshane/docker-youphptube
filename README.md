@@ -10,14 +10,6 @@ YouPHPTube! is an video-sharing website, It is an open source solution that is f
 <a href="http://demo.youphptube.com/" target="_blank">View Demo</a>
 </div>
 
-# YouPHPTube - Encoder
-Go get it <a href="https://github.com/DanielnetoDotCom/YouPHPTube-Encoder" target="_blank">here</a>
-
-<div align="center">
-<img src="https://youphptube.com/img/prints/encoder.png">
-<a href="https://encoder.youphptube.com/" target="_blank">View Public Encoder</a>
-</div>
-
 # How to use
 The simple way, you run the command below:
 ```
@@ -29,12 +21,17 @@ Or you can run then on your own, you need MySQL server to store database for You
 ```
 docker run --name mysql -e MYSQL_ROOT_PASSWORD=your_db_passwd -d mysql/mysql
 ```
+Please use the following instructions to get mysql server's ip:
+```
+docker exec mysql ip addr↵
+```
 After that, you can run the YouPHPTube container and link to MySQL. Docker command like below:
 ```
 docker run --name utube
 -e SITE_TITLE="The name of your site"
 -e DOMAIN=FQDN.your_site.com
--e DOMAIN_PROTOCOL=http
+-e DOMAIN_PROTOCOL=https
+-e ADMIN_PASSWORD=your_password
 -e ADMIN_EMAIL=your_account@gmail.com
 -e DB_HOST=mysql_server
 -e DB_USER=root
@@ -53,9 +50,21 @@ utube#>gencerts.sh↵
 ```
 After that don't forget to change the environment variable __DOMAIN_PROTOCOL__ to __https__, and restart your container.
 
-Then, you should open browser conenect to <em>https://the_server_url</em> and setup your YouPHPTube Streamer Server. By the way, The YouPHPTube Encoder Server was installed in <em>https://the_server_url/encoder</em>, don't forget to setup the configurations too.
+If you want configure by yourself, please delete the file: /var/www/localhost/htdocs/videos/configurations.php, then browse the install web page: https://FQDN.your_site.com/install
 
-Please use the following instructions to get mysql server's ip:
+If you want to run YouPHPTube-Encoder with YouPHPTube, you should pull the YouPHPTube-Encoder docker image like below:
 ```
-docker exec mysql ip addr↵
+docker run --name encoder
+-e DOMAIN=Encoder.your_site.com
+-e DOMAIN_PROTOCOL=https
+-e ADMIN_EMAIL=your_account@gmail.com
+-e DB_HOST=mysql_server
+-e DB_USER=root
+-e DB_PASSWORD=your_db_passwd
+-e LANG=en
+-p 80:80
+-p 443:443
+-d leejoneshane/youphptube-encoder
 ```
+
+The YouPHPTube Encoder Server was installed in <em>https://Encoder.your_site.com</em>, don't forget to setup the configurations too.
