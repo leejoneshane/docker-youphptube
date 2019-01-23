@@ -1,7 +1,10 @@
 <?php
-global $t;
+
 $t['%s ERROR: You must set a ID on config'] = "%s 錯誤：您必須設定 ID";
 $t['%s ERROR: You must set a KEY on config'] = "%s 錯誤：您必須設定 KEY";
+$t[': activate to sort column ascending'] = ": 遞增排序";
+$t[': activate to sort column descending'] = ": 遞減排序";
+$t['(filtered from _MAX_ total entries)'] = "(過濾自 _MAX_ 筆紀錄)";
 $t['465 OR 587'] = "465 或 587";
 $t['A service error occurred: %s'] = "錯誤： %s";
 $t['About'] = "關於";
@@ -9,9 +12,11 @@ $t['Activate'] = "啟用";
 $t['Active'] = "已啟用";
 $t['Ad'] = "廣告";
 $t['Ad Title'] = "廣告標題";
+$t['Add Funds'] = "Add Funds";
 $t['Add to'] = "加入到";
 $t['Admin'] = "管理";
 $t['Admin Menu'] = "管理選單";
+$t['Add more user Groups'] = "新增使用者群組";
 $t['Ads'] = "廣告";
 $t['Ads Form'] = "廣告表單";
 $t['Advanced Configuration'] = "進階設定";
@@ -19,8 +24,13 @@ $t['Advanced configuration'] = "進階設定";
 $t['Advanced configurations are disabled'] = "進階設定已經關閉";
 $t['Advertising Manager'] = "廣告管理";
 $t['Advertising Title'] = "廣告標題";
+$t['Alert'] = "注意";
+$t['All'] = "全部";
+$t['Amount'] = "量";
 $t['An client error occurred: %s'] = "用戶端錯誤： %s";
+$t['Anyone with this key can watch your live stream.'] = "其他人可以使用此金鑰觀看你的線上直播";
 $t['Are you sure?'] = "您確定嗎？";
+$t['Audio'] = "音樂";
 $t['Audio only'] = "只有音樂";
 $t['Audios'] = "音樂";
 $t['Audios and Videos'] = "音樂與影片";
