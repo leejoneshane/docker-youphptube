@@ -25,5 +25,7 @@ if [[ "${DOMAIN}" != "your.domain" && "${DB_HOST}" != "localhost" ]]; then
   fi
 fi
 
+chown -R apache:apache /var/www
+
 rm -f /run/apache2/httpd.pid
 exec httpd -DFOREGROUND
