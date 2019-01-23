@@ -55,7 +55,7 @@ If you want configure by yourself, please delete the file: /var/www/localhost/ht
 If you want to run YouPHPTube-Encoder with YouPHPTube, you should pull the YouPHPTube-Encoder docker image like below:
 ```
 docker run --name encoder
--e DOMAIN=Encoder.your_site.com
+-e DOMAIN=FQDN.your_site.com
 -e DOMAIN_PROTOCOL=https
 -e ADMIN_EMAIL=your_account@gmail.com
 -e DB_HOST=mysql_server
@@ -66,5 +66,3 @@ docker run --name encoder
 -p 443:443
 -d leejoneshane/youphptube-encoder
 ```
-
-The YouPHPTube Encoder Server was installed in <em>https://Encoder.your_site.com</em>, don't forget to setup the configurations too.
