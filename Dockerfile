@@ -44,14 +44,10 @@ RUN apk update  \
     && chmod a+rx /usr/local/bin/gencerts.sh \
     && mkdir videos \
     && chmod 755 videos \
-    && git clone https://github.com/DanielnetoDotCom/YouPHPTube-Encoder.git \
-    && mv YouPHPTube-Encoder encoder \
-    && mkdir encoder/videos \
-    && chmod 755 encoder/videos \
     && chown -R apache:apache /var/www
 
 ADD tw.php /var/www/localhost/htdocs/locale
 
-VOLUME ["/var/www/localhost/htdocs/videos", "/var/www/localhost/htdocs/encoder/videos"]
+VOLUME ["/var/www/localhost/htdocs/videos"]
 EXPOSE 80 443
 CMD ["docker-entrypoint.sh"]
