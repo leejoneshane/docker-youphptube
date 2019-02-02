@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3.8
 
 ENV DOMAIN your.domain
 ENV DOMAIN_PROTOCOL http
