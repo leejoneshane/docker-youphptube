@@ -11,9 +11,9 @@ YouPHPTube! is an video-sharing website, It is an open source solution that is f
 </div>
 
 # How to use
-The simple way, you run the command below:
+The simple way, you edit docker-compose.yml then run the command below:
 ```
-docker-compose up &
+docker-compose up -d
 ```
 This way will create all service containers, include: mysql, phpmyadmin and youphptube.
 
@@ -62,7 +62,7 @@ docker run --name encoder
 -e DB_USER=root
 -e DB_PASSWORD=your_db_passwd
 -e LANG=en
--p 80:80
--p 443:443
+-p 8000:80
+-p 8443:443
 -d leejoneshane/youphptube-encoder
 ```
