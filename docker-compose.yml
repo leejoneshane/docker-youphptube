@@ -20,7 +20,7 @@ services:
     environment:
       SITE_TITLE: I_love_videos
       DOMAIN: fqdn_of_the_server
-      DOMAIN_PROTOCOL: https
+      DOMAIN_PROTOCOL: http
       ADMIN_EMAIL: your_email
       DB_HOST: db
       DB_USER: root
@@ -38,14 +38,14 @@ services:
     environment:
       SITE_TITLE: I_love_videos
       DOMAIN: fqdn_of_the_server
-      DOMAIN_PROTOCOL: https
+      DOMAIN_PROTOCOL: http
       ADMIN_EMAIL: your_email
       DB_HOST: db
       DB_USER: root
       DB_PASSWORD: your_db_password
       LANG: tw
     ports:
-      - "80:80"
-      - "443:443"
+      - "8000:80"
+      - "8443:443"
     links:
       - mysql:db
