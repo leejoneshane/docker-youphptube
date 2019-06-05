@@ -5,6 +5,7 @@ services:
     container_name: mysql
     environment:
       MYSQL_ROOT_PASSWORD: your_db_password
+    restart: always
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -13,6 +14,7 @@ services:
       - "8080:80"
     links:
       - mysql:db
+    restart: always
 
   encoder:
     image: leejoneshane/youphptube-encoder
@@ -31,6 +33,7 @@ services:
       - "443:443"
     links:
       - mysql:db
+    restart: always
   
   youphptube:
     image: leejoneshane/youphptube
@@ -49,3 +52,4 @@ services:
       - "8443:443"
     links:
       - mysql:db
+    restart: always
