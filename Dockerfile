@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu
 
 ENV DOMAIN your.domain
 ENV DOMAIN_PROTOCOL http
