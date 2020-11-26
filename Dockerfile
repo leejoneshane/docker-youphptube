@@ -18,7 +18,7 @@ WORKDIR /var/www/html
 
 RUN ln -snf /usr/share/zoneinfo/UTC /etc/localtime && echo 'UTC' > /etc/timezone \
     && apt-get update \
-    && apt-get install apt-transport-https lsb-release logrotate git curl vim net-tools iputils-ping -y --no-install-recommends \
+    && apt-get install apt-transport-https lsb-release logrotate git curl vim net-tools iputils-ping zlib1g-dev -y --no-install-recommends \
     && docker-php-ext-configure gd --with-freetype=/usr/include --with-jpeg=/usr/include \
     && docker-php-ext-install -j$(nproc) bcmath bz2 calendar exif gd gettext iconv intl mbstring mysqli opcache pdo_mysql zip \
     && rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/* /root/.cache \
