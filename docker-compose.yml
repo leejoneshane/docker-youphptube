@@ -15,6 +15,19 @@ services:
       - "8080:80"
     restart: always
   
+  encoder:
+    image: leejoneshane/youphptube-encoder
+    environment:
+      DOMAIN: fqdn_of_the_server
+      DOMAIN_PROTOCOL: http
+      ADMIN_PASSWORD: your_password
+      DB_HOST: mysql
+      DB_USER: root
+      DB_PASSWORD: your_db_password
+    ports:
+      - "8000:80"
+    restart: always
+
   youphptube:
     image: leejoneshane/youphptube
     environment:
@@ -22,11 +35,12 @@ services:
       DOMAIN: fqdn_of_the_server
       DOMAIN_PROTOCOL: http
       ADMIN_EMAIL: your_email
+      ADMIN_PASSWORD: your_password
       DB_HOST: mysql
       DB_USER: root
       DB_PASSWORD: your_db_password
-      LANG: tw
+      LANG: en
+      ENCODER: http://fqdn_of_the_server:8000
     ports:
       - "80:80"
-      - "443:443"
     restart: always
