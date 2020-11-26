@@ -1,14 +1,21 @@
 # docker-youphptube
 
-This is a docker image to run YouPHPTube v6.9 in LXC.
+This is a docker image to run YouPHPTube v8.9.1 in LXC.
 
-# YouPHPTube
-YouPHPTube! is an video-sharing website, It is an open source solution that is freely available to everyone. With YouPHPTube you can create your own video sharing site, YouPHPTube will help you import and encode videos from other sites like Youtube, Vimeo, etc. and you can share directly on your website. In addition, you can use Facebook or Google login to register users on your site. The service was created in march 2017. [more detail...](https://github.com/DanielnetoDotCom/YouPHPTube)
+<img src="https://avideo.tube/website/assets/151/images/avideo_platform.png"/>
 
-<div align="center">
-<img src="http://www.youphptube.com/img/prints/prints7.png">
-<a href="http://demo.youphptube.com/" target="_blank">View Demo</a>
-</div>
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%205.6-8892BF.svg?style=flat-square)](https://php.net/)
+[![GitHub release](https://img.shields.io/github/v/release/WWBN/AVideo)](https://github.com/WWBN/AVideo/releases)
+
+## Audio Video Platform
+AVideo is a term that means absolutely nothing, or anything video. Since it doesn't mean anything the brand simply is identifiable with audio video. AVideo Platform is an Audio and Video Platform or simply "A Video Platform".
+
+* AVideo - Audio Video
+* AVideo Platform - Audio Video Platform
+* OAVP - Online Audio Video Platform
+* OVP - Online Video Platform
+
+AVideo Platform is distributed as SaaS at <a href="https://avideo.com">AVideo.com</a>, as an <a href="https://avideo.tube/AVideo_Enterprise">Enterprise Version</a>, and as an <a href="https://avideo.tube/AVideo_OpenSource">Open-Source Project</a>.
 
 # How to use
 The simple way, you edit docker-compose.yml then run the command below:
