@@ -18,7 +18,6 @@ WORKDIR /var/www/avideo
 
 RUN apt-get update \
     && apt-get install apt-transport-https lsb-release logrotate git curl vim net-tools iputils-ping apache2 php7.4 php7.4-common php7.4-cli php7.4-json php7.4-mbstring php7.4-curl php7.4-mysql php7.4-bcmath php7.4-xml php7.4-gd php7.4-zip -y --no-install-recommends \
-    && ln -fs /usr/share/zoneinfo/UTC /etc/localtime \
     && rm /etc/apache2/sites-enabled/000-default.conf \
     && sed -ri \
            -e 's!^(max_execution_time = )(.*)$!\1 72000!g' \
