@@ -27,7 +27,6 @@ RUN ln -snf /usr/share/zoneinfo/UTC /etc/localtime && echo 'UTC' > /etc/timezone
            -e 's!^(memory_limit = )(.*)$!\1 10G!g' \
            "/etc/php7/php.ini" \
        \
-    && rm -f index.html \
     && git clone https://github.com/WWBN/AVideo.git \
     && mv AVideo/* . \
     && mv AVideo/.[!.]* . \
