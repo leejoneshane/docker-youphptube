@@ -14,7 +14,6 @@ ENV ENCODER https://encoder1.avideo.com/
 
 ADD install.php /root/
 ADD entrypoint.sh /usr/local/bin/
-ADD gencerts.sh /usr/local/bin/
 WORKDIR /var/www/html
 
 RUN ln -snf /usr/share/zoneinfo/UTC /etc/localtime && echo 'UTC' > /etc/timezone \
