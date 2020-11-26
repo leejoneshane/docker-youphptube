@@ -37,7 +37,6 @@ RUN ln -snf /usr/share/zoneinfo/UTC /etc/localtime && echo 'UTC' > /etc/timezone
     && mv AVideo/.[!.]* . \
     && rm -rf AVideo \
     && chmod a+rx /usr/local/bin/entrypoint.sh \
-    && chmod a+rx /usr/local/bin/gencerts.sh \
     && mkdir videos \
     && chmod 755 videos \
     && chown -R www-data:www-data /var/www/html
