@@ -1,16 +1,16 @@
 #!/usr/bin/php -q
 <?php
 $installationVersion = '9.7';
-$p = getenv('PROTOCOL');
-$d = getenv('DOMAIN');
+$p = getenv('DOMAIN_PROTOCOL') ?: 'http';
+$d = getenv('DOMAIN') ?: 'localhost';
 $s = getenv('SALT') ?: uniqid();
-$dbh = getenv('DB_HOST');
-$dbu = getenv('DB_USER');
-$dbp = getenv('DB_PASSWORD');
+$dbh = getenv('DB_HOST') ?: 'localhost';
+$dbu = getenv('DB_USER') ?: 'root';
+$dbp = getenv('DB_PASSWORD') ?: 'dbpasswd';
 $am = getenv('ADMIN_EMAIL');
 $ap = getenv('ADMIN_PASSWORD');
-$t = getenv('SITE_TITLE');
-$l = getenv('LANG');
+$t = getenv('SITE_TITLE') ?: 'AVideo';
+$l = getenv('LANG') ?: 'en';
 $en = getenv('ENCODER');
 
 function encryptPassword($password)
