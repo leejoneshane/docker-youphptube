@@ -1,6 +1,6 @@
 # docker-youphptube
 
-This is a docker image to run YouPHPTube v9.7 in LXC.
+This is a docker image to run AVideo v9.7 in LXC.
 
 <img src="https://avideo.tube/website/assets/151/images/avideo_platform.png"/>
 
