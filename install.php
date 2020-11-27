@@ -18,7 +18,7 @@ function encryptPassword($password)
     return md5(hash('whirlpool', sha1($password.$s)));
 }
 
-$conn = new mysqli($dbh, $dbu, $dbp, 'youPHPTube');
+$conn = @new mysqli($dbh, $dbu, $dbp, 'youPHPTube');
 if ($conn->connect_error) {
     $conn = new mysqli($dbh, $dbu, $dbp);
     $sql = 'CREATE DATABASE IF NOT EXISTS youPHPTube CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;';
