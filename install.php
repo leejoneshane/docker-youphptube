@@ -1,6 +1,6 @@
 #!/usr/bin/php -q
 <?php
-$installationVersion = "9.7";
+$installationVersion = '9.7';
 $p = getenv('PROTOCOL');
 $d = getenv('DOMAIN');
 $s = getenv('SALT') ?: uniqid();
@@ -39,14 +39,14 @@ if ($conn->connect_error) {
 }
 $conn->close();
 
-$file = '/var/www/avideo/videos/configuration.php';
+$file = '/var/www/html/videos/configuration.php';
 if (!file_exists($file)) {
     $content = "<?php
 \$global['configurationVersion'] = 3.1;
 \$global['disableAdvancedConfigurations'] = 0;
 \$global['videoStorageLimitMinutes'] = 0;
 \$global['disableTimeFix'] = 0;
-\$global['logfile'] = '/var/www/avideo/videos/avideo.log';
+\$global['logfile'] = '/var/www/html/videos/avideo.log';
 \$global['webSiteRootURL'] = '$p://$d/';
 \$global['systemRootPath'] = '/var/www/avideo';
 \$global['salt'] = '$s';
@@ -67,7 +67,7 @@ if (!file_exists($file)) {
  */
 require_once \$global['systemRootPath'].'objects/include_config.php';
 ";
-    $fp = fopen($file, "wb");
+    $fp = fopen($file, 'wb');
     fwrite($fp, $content);
     fclose($fp);
 }
