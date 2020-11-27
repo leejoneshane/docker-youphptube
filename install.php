@@ -24,7 +24,18 @@ if ($conn->connect_error) {
     $sql = 'CREATE DATABASE IF NOT EXISTS youPHPTube CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;';
     $conn->query($sql);
     $conn->select_db('youPHPTube');
-    $conn->query(file_get_contents('/var/www/avideo/install/database.sql'));
+    $lines = file('/var/www/html/install/database.sql');
+    $templine = '';
+    foreach ($lines as $line) {
+        if (substr($line, 0, 2) == '--' || $line == '') {
+            continue;
+        }
+        $templine .= $line;
+        if (substr(trim($line), -1, 1) == ';') {
+            $conn->query($templine);
+            $templine = '';
+        }
+    }
     $conn->query('DELETE FROM users WHERE id = 1');
     $sql = "INSERT INTO users (id, user, email, password, created, modified, isAdmin) VALUES (1, 'admin', '$am', '".md5($ap)."', now(), now(), true)";
     $conn->query($sql);
