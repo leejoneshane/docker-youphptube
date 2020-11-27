@@ -1,14 +1,13 @@
 FROM php:7-apache
 
-ENV DOMAIN your.domain
+ENV DOMAIN localhost
 ENV DOMAIN_PROTOCOL http
-ENV SITE_TITLE your_site_title
+ENV SITE_TITLE AVideo
 ENV ADMIN_PASSWORD password
 ENV ADMIN_EMAIL webmaster@your.domain
 ENV DB_HOST localhost
 ENV DB_USER root
 ENV DB_PASSWORD password
-ENV SALT your.salt
 ENV LANG en
 ENV ENCODER https://encoder1.avideo.com/
 
