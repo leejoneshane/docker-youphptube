@@ -48,7 +48,7 @@ if (!file_exists($file)) {
 \$global['disableTimeFix'] = 0;
 \$global['logfile'] = '/var/www/html/videos/avideo.log';
 \$global['webSiteRootURL'] = '$p://$d/';
-\$global['systemRootPath'] = '/var/www/avideo';
+\$global['systemRootPath'] = '/var/www/html/';
 \$global['salt'] = '$s';
 \$global['disableTimeFix'] = 0;
 \$global['enableDDOSprotection'] = 1;
