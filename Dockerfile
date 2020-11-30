@@ -34,5 +34,6 @@ RUN ln -snf /usr/share/zoneinfo/UTC /etc/localtime && echo 'UTC' > /etc/timezone
     && chmod 755 videos \
     && chown -R www-data:www-data /var/www/html
 
+COPY tw.php /var/www/html/locale/tw.php
 VOLUME ["/var/www/html/videos"]
 CMD ["entrypoint.sh"]
