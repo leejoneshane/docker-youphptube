@@ -8,6 +8,7 @@ ENV ADMIN_EMAIL webmaster@your.domain
 ENV DB_HOST localhost
 ENV DB_USER root
 ENV DB_PASSWORD password
+ENV DB_NAME youPHPTube
 ENV LANG en
 ENV ENCODER https://encoder1.avideo.com/
 
