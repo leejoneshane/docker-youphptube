@@ -7,6 +7,7 @@ $s = getenv('SALT') ?: uniqid();
 $dbh = getenv('DB_HOST') ?: 'mysql';
 $dbu = getenv('DB_USER') ?: 'root';
 $dbp = getenv('DB_PASSWORD') ?: 'dbpasswd';
+$dbn = getenv('DB_NAME') ?: 'youPHPTube';
 $am = getenv('ADMIN_EMAIL');
 $ap = getenv('ADMIN_PASSWORD');
 $t = getenv('SITE_TITLE') ?: 'AVideo';
@@ -18,12 +19,12 @@ function encryptPassword($password)
     return md5(hash('whirlpool', sha1($password.$s)));
 }
 
-$conn = @new mysqli($dbh, $dbu, $dbp, 'youPHPTube');
+$conn = @new mysqli($dbh, $dbu, $dbp, $dbn);
 if ($conn->connect_error) {
     $conn = new mysqli($dbh, $dbu, $dbp);
-    $sql = 'CREATE DATABASE IF NOT EXISTS youPHPTube CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;';
+    $sql = "CREATE DATABASE IF NOT EXISTS $dbn CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;";
     $conn->query($sql);
-    $conn->select_db('youPHPTube');
+    $conn->select_db($dbn);
     $lines = file('/var/www/html/install/database.sql');
     $templine = '';
     foreach ($lines as $line) {
@@ -72,7 +73,7 @@ if (!file_exists($file)) {
 \$mysqlPort = '3306';
 \$mysqlUser = '$dbu';
 \$mysqlPass = '$dbp';
-\$mysqlDatabase = 'youPHPTube';
+\$mysqlDatabase = '$dbn';
 /**
  * Do NOT change from here
  */
